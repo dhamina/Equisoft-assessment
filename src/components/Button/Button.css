@@ -1,0 +1,22 @@
+.btn__cn {
+  /* padding: 15px 24px ; */
+  border-radius: 7px;
+  font: 600 15px / 16px hind;
+  color: white;
+  background-color: #0066cc;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-family: sans-serif;
+  height: 50px;
+  max-width: 250px;
+}
+.white-btn {
+  color: grey;
+  background-color: white;
+  border: 1px solid rgb(206, 212, 218);
+}
