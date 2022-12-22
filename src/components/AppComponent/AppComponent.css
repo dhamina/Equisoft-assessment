@@ -1,5 +1,5 @@
 .cn{
-    margin:100px;
+    margin:10px;
 }
 .ipn__cn{
     display: flex;
@@ -9,27 +9,16 @@
     gap:15px;
     flex-wrap: wrap;
 }
-.menu{
-    transition: all 0.5s ease 0s;
-    position: absolute;
-    z-index: 10;
-    padding: 10px 0px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(221, 221, 221);
-    margin-top: 1px;
-    max-height: 550px;
-    overflow: hidden auto;
-    transform-origin: left top;
-    width: 100%;
-    max-width: 210px;
-    display: block !important;
-}
-.menu-item{
-    cursor:pointer;
-}
+
 @media (min-width: 720px){
     .ipn__cn{
         flex-direction: row;
         flex: 1 1 25%;
+    }
+    .menu__cn{
+        width: 235px;
+    }
+    .cn{
+        margin:100px;
     }
 }

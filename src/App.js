@@ -5,9 +5,13 @@ import Button from './components/Button/Button';
 
 function App() {
   const [instance,setinstance] = useState([0])
+  
+  const onCreateInstanceHandler = () =>{
+    setinstance(instance.concat(0))
+  }
   return (
     <div className="App">
-      <Button id='small' label="Create Instance" onClick={()=>{setinstance(instance.concat(0))}} />
+      <div className='app__cn'><Button id='small' label="Create Instance" onClick={onCreateInstanceHandler} />  </div>
       {
         instance.map((r,index)=>{
           return <div key={index} ><AppComponent/> </div>

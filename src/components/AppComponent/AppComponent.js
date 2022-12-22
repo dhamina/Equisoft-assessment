@@ -2,14 +2,16 @@ import { useState } from "react";
 import { filterNumbers, sortNumbers } from "../../Utils";
 import Button from "../Button/Button";
 import InputField from "../InputField/InputField";
+import { Menu } from "../Menu/Menu";
 import "./AppComponent.css";
 
-export default function AppComponent(props) {
+export default function AppComponent() {
   const [numbers, setNumbers] = useState(["", "", ""]);
   const [highLight, setHighLight] = useState([]);
   const [open, setOpen] = useState(false);
   const [customOptions, setCustonButton] = useState(["odd", "even", "positive", "negative" ]);
   const [buttons, setButtons] = useState([{name: "biggest",id: "big"},{ name: "smallest",id: "small"} ]);
+
   const handleInputchange = (id, e) => {
     let newFormValues = [...numbers];
     const currentValue = e.target.value ? Number(e.target.value) : "";
@@ -27,16 +29,15 @@ export default function AppComponent(props) {
       const sorted = sortNumbers(filter);
       setHighLight(filterNumbers(type, sorted));
     }
-   
   };
 
   const onButtonChooseHandler = (type, position) => {
-    onCloseHandler();
     let data = {name: type, id: type,};
     const temp = [...customOptions];
     temp.splice(position, 1);
     setCustonButton(temp);
     setButtons(buttons.concat(data));
+    onCloseHandler();
   };
   const onOpenHandle = () => {
     setOpen(!open);
@@ -44,6 +45,7 @@ export default function AppComponent(props) {
   const onCloseHandler = () => {
     setOpen(false);
   };
+
   return (
     <div className="cn">
       <div className="ipn__cn">
@@ -53,27 +55,9 @@ export default function AppComponent(props) {
           onClick={onInputAddHandler}
         />
         {customOptions.length !== 0 && (
-          <div>
-            <Button
-              // onBlur={onCloseHandler}
-              customClass="white-btn"
-              label="Add Custom Button"
-              onClick={onOpenHandle}
-            />
-            {open ? (
-              <ul className="menu">
-                {customOptions.map((r, index) => {
-                  return (
-                    <li
-                      onClick={() => onButtonChooseHandler(r, index)}
-                      className="menu-item"
-                    >
-                      <p>{r}</p>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : null}
+          <div className="menu__cn">
+            <Button  customClass="white-btn" label="Add Custom Button"onClick={onOpenHandle} />
+            {open && (<Menu options={customOptions} onButtonChooseHandler={onButtonChooseHandler} /> )}
           </div>
         )}
       </div>

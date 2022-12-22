@@ -1,7 +1,5 @@
 export const sortNumbers= (values)=>{
-    return values.sort(function (a, b) {
-        return a - b;
-      });
+    return values.sort(function (a, b) { return a - b;});
 }
 
 export const filterNumbers = (type,sorted)=>{
